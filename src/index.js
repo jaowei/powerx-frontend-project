@@ -1,17 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "react-query";
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import { AppShell } from 'app-shell';
+import { PageNotFound } from 'pages/404';
+import { Home } from 'pages/home';
+import { Favourites } from 'pages/favourites';
+import { GameDetailsPage } from 'pages/game-details-page';
+import { GamesListingPage } from 'pages/games-listing-page';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60000,
+    },
+  },
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <AppShell>
+        <Switch>
+          <Route path="/" exact><Home /></Route>
+          <Route path="/games" exact><GamesListingPage /></Route>
+          <Route path="/favourites"><Favourites /></Route>
+          <Route path="/game/:gameId" exact><GameDetailsPage /></Route>
+          <Route path="/games/:genre" exact><GamesListingPage /></Route>
+          <Route path="*"><PageNotFound /></Route>
+        </Switch>
+      </AppShell>
+    </QueryClientProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
