@@ -7,7 +7,6 @@ import './index.css';
 import { AppShell } from 'app-shell';
 import { PageNotFound } from 'pages/404';
 import { Home } from 'pages/home';
-import { Favourites } from 'pages/favourites';
 import { GameDetailsPage } from 'pages/game-details-page';
 import { GamesListingPage } from 'pages/games-listing-page';
 
@@ -22,16 +21,17 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      <AppShell>
-        <Switch>
-          <Route path="/" exact><Home /></Route>
-          <Route path="/games" exact><GamesListingPage /></Route>
-          <Route path="/favourites"><Favourites /></Route>
-          <Route path="/game/:gameId" exact><GameDetailsPage /></Route>
-          <Route path="/games/:genre" exact><GamesListingPage /></Route>
-          <Route path="*"><PageNotFound /></Route>
-        </Switch>
-      </AppShell>
+      {/* <FavGamesProvider> */}
+        <AppShell>
+            <Switch>
+              <Route path="/" exact><Home /></Route>
+              <Route path="/games" exact><GamesListingPage /></Route>
+              <Route path="/game/:gameId" exact><GameDetailsPage /></Route>
+              <Route path="/games/:genre" exact><GamesListingPage /></Route>
+              <Route path="*"><PageNotFound /></Route>
+            </Switch>
+          </AppShell>
+      {/* </FavGamesProvider> */}
     </QueryClientProvider>
   </BrowserRouter>,
   document.getElementById('root')

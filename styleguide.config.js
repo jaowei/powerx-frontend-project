@@ -10,6 +10,7 @@ const {
    */
   module.exports = {
     require: [path.resolve(__dirname, "src/index.css")],
+    components: ['src/components/*.jsx', 'src/domains/**/components/*.jsx'],
     webpackConfig:
       process.env.NODE_ENV === "production"
         ? createWebpackProdConfig(cracoConfig)

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CubeIcon, HeartIcon } from "@heroicons/react/solid";
+import { CubeIcon } from "@heroicons/react/solid";
 
 export const AppShell = ({ children }) => {
   return (
@@ -17,18 +17,14 @@ export const AppShell = ({ children }) => {
                     </Link>
                 </div>
               </nav>
-              <div className="flex gap-3">
-                <Link to="/favourites" className="transform hover:scale-110">
-                    <HeartIcon className="h-6 w-6 text-gray-700 hover:text-red-700" />
-                </Link>
-              </div>
           </div>
       </header>
       <main>{children}</main>
       <footer className="bg-gray-100 bottom-0">
         <div className="flex flex-col justify-center items-center py-2 max-w-7xl mx-auto">
             <span>PowerX Frontend Project</span>
-            <a href="https://github.com"><u>View Project Here</u></a>
+            <a className="text-blue-700 underline" href="https://github.com/jaowei/powerx-frontend-project">View Project Here</a>
+            <span>Powered By: <a className="text-blue-700 underline" href="https://rawg.io/apidocs">Rawg.io</a></span>
         </div>
       </footer>
     </div>
