@@ -34,7 +34,7 @@ export const GameDetails = (props) => {
                     <span className="text-5xl font-bold">
                         {game.data.name}
                         <span className="pl-3">
-                            {favData && (favData.includes(props.gameId) ? (
+                            {favData && (favData.includes(gameId) ? (
                                 <button 
                                     className="pr-5 transform hover:scale-110"
                                     onClick={() => removeFromFavourites(gameId)}
