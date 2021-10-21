@@ -23,7 +23,7 @@ export const GameCard = (props) => {
                             <PlatformBar data={props.platforms}/>
                         </span>
                     </div>
-                    {props.favData && props.favData.includes(props.gameId) ? (
+                    {props.favData && (props.favData.includes(props.gameId) ? (
                         <button 
                             className="pr-3 pb-3 transform hover:scale-110"
                             onClick={() => props.removeFav(props.gameId)}
@@ -37,7 +37,7 @@ export const GameCard = (props) => {
                         >
                             <HeartIcon className="w-4 h-4 text-gray-400 hover:text-red-600" />
                         </button>
-                    }
+                    )}
                 </div>
             </div>
         </div>
