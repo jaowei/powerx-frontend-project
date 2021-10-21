@@ -15,7 +15,6 @@ export const useFeaturedGames = (page, pageSize) => {
 export const useListedGames = (page, pageSize, genre, search) => {
     const query = useQuery(["Listedgames", genre, search], () => getGamesByGenre(page, pageSize, genre, search), {
         refetchOnWindowFocus: false,
-        refetchOnMount: false
     })
 
     return {

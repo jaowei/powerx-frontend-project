@@ -20,8 +20,10 @@ export const getGamesByGenre = (page, pageSize, genre, search) => {
   let queryString = `page=${page}&page_size=${pageSize}`
   
   if (genre) {
-    queryString += `&genre=${genre}`
-  } else if (search.length > 1) {
+    queryString += `&genres=${genre}`
+  } 
+  
+  if (search.length > 1) {
     queryString += `&search=${search}`
   }
 

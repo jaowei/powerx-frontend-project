@@ -15,11 +15,10 @@ export const GamesListing = (props) => {
     const genres = useGenres(19)
     const games = useListedGames(1, 36, props.genre, searchVal)
     const { favData, setFavData, removeFromFavourites } = useFavGames()
-
+  
       return (
           <div>
               <SearchBar 
-                searchVal={searchVal}
                 setSearchVal={setSearchVal}
               />
               <div className="grid grid-cols-12 gap-1 max-w-7xl mx-auto">
