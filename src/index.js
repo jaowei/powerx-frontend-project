@@ -21,7 +21,6 @@ const queryClient = new QueryClient({
 ReactDOM.render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      {/* <FavGamesProvider> */}
         <AppShell>
             <Switch>
               <Route path="/" exact><Home /></Route>
@@ -31,7 +30,6 @@ ReactDOM.render(
               <Route path="*"><PageNotFound /></Route>
             </Switch>
           </AppShell>
-      {/* </FavGamesProvider> */}
     </QueryClientProvider>
   </BrowserRouter>,
   document.getElementById('root')
