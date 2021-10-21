@@ -27,7 +27,6 @@ export const Favourites = () => {
                                 <button 
                                     className="flex flex-row items-center justify-center border rounded-lg bg-red-300 hover:bg-red-500 text-red-800"
                                     onClick={() => {
-                                        console.log('clicked')
                                         removeFromFavourites(queryObj.data.id)}}
                                 >
                                     <FaTrashAlt className="h-5 w-5" />

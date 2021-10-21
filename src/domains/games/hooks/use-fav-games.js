@@ -14,7 +14,7 @@ export const useFavGames = () => {
     }, [favData])
 
     const removeFromFavourites = (targetGameId) => {
-        let updatedArr = favData.filter((gameId) => gameId !== targetGameId)
+        let updatedArr = favData.filter((gameId) => parseInt(gameId) !== parseInt(targetGameId))
         setFavData(updatedArr)
     }
 

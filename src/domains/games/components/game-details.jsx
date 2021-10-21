@@ -14,12 +14,12 @@ import { GiGamepad } from "react-icons/gi"
 import { HeartIcon } from "@heroicons/react/solid";
 
 export const GameDetails = (props) => {
-    const gameId = props.gameId
+    const gameId = parseInt(props.gameId)
     const game = useGameDetails(gameId)
     const screenshots = useGameMedia(gameId, 'screenshots')
     const stores = useGameMedia(gameId, 'stores')
     const gameSeries = useGameMedia(gameId, 'game-series')
-    const { data, setData, removeFromFavourites } = useFavGames()
+    const { favData, setFavData, removeFromFavourites } = useFavGames()
 
     return (
         <div className="grid grid-cols-12 gap-1 max-w-7xl mx-auto" >
@@ -34,21 +34,21 @@ export const GameDetails = (props) => {
                     <span className="text-5xl font-bold">
                         {game.data.name}
                         <span className="pl-3">
-                            {data && data.includes(props.gameId) ? (
+                            {favData && (favData.includes(props.gameId) ? (
                                 <button 
                                     className="pr-5 transform hover:scale-110"
-                                    onClick={() => removeFromFavourites(props.gameId)}
+                                    onClick={() => removeFromFavourites(gameId)}
                                 >
                                     <HeartIcon className="w-8 h-8 text-red-600 hover:text-gray-400" />
                                 </button>
                             ) : 
                                 <button 
                                     className="pr-5 transform hover:scale-110"
-                                    onClick={() => setData([...data, props.gameId])}
+                                    onClick={() => setFavData([...favData, gameId])}
                                 >
                                     <HeartIcon className="w-8 h-8 text-gray-400 hover:text-red-600" />
                                 </button>
-                            }
+                            )}
                         </span>
                     </span>
                     }
